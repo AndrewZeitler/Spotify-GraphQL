@@ -1,0 +1,25 @@
+<div>
+  <div *ngIf="tracks != null && fullTracks != null">
+    <h1 class="text-tag">Tracks:</h1>
+    <div>
+      <ng-container *ngFor="let track of tracks; let i = index;">
+        <track-card [track]="track" [fullTrack]="fullTracks[i]"></track-card>
+      </ng-container>
+    </div>
+  </div>
+
+  <div *ngIf="artists != null && fullArtists != null">
+    <h1 class="text-tag">Artists:</h1>
+    <div>
+      <ng-container *ngFor="let artist of artists; let i = index;">
+        <artist-card [artist]="artist" [fullArtist]="fullArtists[i]"></artist-card>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <button class="logout" (click)="logout()">Logout</button>
+    <label class="label">Enter tracks to load:</label>
+    <input class="label" type="number" id="amount" name="amount" (change)="displayAmountChanged($event)">
+  </div>
+</div>

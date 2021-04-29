@@ -1,0 +1,30 @@
+.navbar {
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.label {
+    position: relative;
+    color: #eee;
+    background-color: #333;
+    margin-right: 10px;
+}
+
+.logout {
+    position: relative;
+    left: 90%;
+    right: 10%;
+    color: #eee;
+    background-color: #333;
+}
+
+.text-tag {
+    position: relative;
+    width: 60%;
+    top: 10px;
+    height: 20px;
+    color: #eeeeee;
+    padding-bottom: 10px;
+}

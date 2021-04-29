@@ -1,0 +1,11 @@
+<div class="track-card">
+    <div class="inner-track-card">
+        <img class="album-image" [src]="getTrackImg()" alt="getTrackTitle()">
+        <div class="tags">
+            <h1 class="title-tag">{{getTrackTitle()}}</h1>
+            <h2 class="album-tag">{{getTrackAlbumTitle()}} : {{getTrackReleaseDate()}}</h2>
+        </div>>
+        <textarea readonly class="text-tag" style="resize: none;">{{getJsonTrack()}}</textarea>
+        <textarea readonly class="text-tag" style="resize: none;">{{getFullJsonTrack()}}</textarea>
+    </div>
+</div>

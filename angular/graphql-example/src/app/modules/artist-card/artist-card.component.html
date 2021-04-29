@@ -1,0 +1,11 @@
+<div class="artist-card">
+    <div class="inner-artist-card">
+        <img class="artist-image" [src]="getArtistImage()" alt="getArtistName()">
+        <div class="tags">
+            <h1 class="name-tag">{{getArtistName()}}</h1>
+            <h2 class="genres-tag">{{getArtistGenres()}}</h2>
+        </div>>
+        <textarea readonly class="text-tag" style="resize: none;">{{getJsonArtist()}}</textarea>
+        <textarea readonly class="text-tag" style="resize: none;">{{getFullJsonArtist()}}</textarea>
+    </div>
+</div>

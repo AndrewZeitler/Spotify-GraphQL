@@ -1,0 +1,59 @@
+type ImageObject {
+    width: Int!
+    height: Int!
+    url: String!
+}
+
+type Album {
+    id: String!
+    name: String!
+    artists: [Artist]
+    album_group: String
+    album_type: String
+    available_markets: [String]
+    href: String
+    release_date: String
+    release_date_precision: String
+    type: String
+    uri: String
+    images: [ImageObject]!
+}
+
+type Artist {
+    id: String!
+    name: String!
+    genres: [String]!
+    href: String
+    images: [ImageObject]!
+    popularity: Int
+    type: String
+    uri: String
+}
+
+type Song {
+    id: String!
+    album: Album!
+    name: String!
+    artists: [Artist]
+    available_markets: [String]
+    disc_number: Int
+    duration_ms: Int
+    explicit: Boolean
+    href: String
+    is_local: Boolean
+    is_playable: Boolean
+    popularity: Int
+    preview_url: String
+    track_number: Int
+    type: String
+    uri: String
+}
+
+type Query {
+    topTracks(amount: Int!): [Song]
+    topArtists(amount: Int!): [Artist]
+}
+
+type Mutation {
+    logout: Boolean
+}

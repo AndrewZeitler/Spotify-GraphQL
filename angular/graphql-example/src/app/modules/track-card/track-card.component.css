@@ -1,0 +1,51 @@
+.track-card {
+    width: 100%;
+    height: 220px;
+}
+
+.inner-track-card {
+    width: 100%;
+    height: 210px;
+    left: 5px;
+    border-radius: 5px;
+    background-color: #13171d;
+    display: inline-flex;
+}
+
+.tags {
+    margin-right: 10px;
+    position: relative;
+    width: 40%;
+}
+
+.album-image {
+    position: relative;
+    left: 5px;
+    top: 5px;
+    width: 200px;
+    height: 200px;
+}
+
+.title-tag {
+    position: relative;
+    width: 100%;
+    left: 20px;
+    top: 10px;
+    color: #eeeeee
+}
+
+.album-tag {
+    position: relative;
+    width: 100%;
+    left: 20px;
+    color: #eeeeee
+}
+
+.text-tag {
+    position: relative;
+    width: 60%;
+    top: 10px;
+    height: 180px;
+    color: #eeeeee;
+    background-color: #13171d;
+}
