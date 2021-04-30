@@ -19,41 +19,49 @@ public class SpotifyAPI {
     final static String scopes = "user-top-read";
     final static String redirect_uri = "http://localhost:4000/callback";
 
-    public static TrackObject[] getTopTracks(int amount) throws Exception {
+    public static TrackObject[] getTopTracks(int amount) {
         if(ServerController.getSpotifyAccessToken().equals("")) return null;
-        URL url = new URL("https://api.spotify.com/v1/me/top/tracks?limit=" + amount);
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("GET");
-        con.setRequestProperty("Authorization", "Bearer " + ServerController.getSpotifyAccessToken());
-        con.setUseCaches(false);
-        con.setDoInput(true);
-        con.setDoOutput(true);
-        
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(com.fasterxml.jackson.core.JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
-        
-        TrackPagingObject tracks = mapper.readValue(con.getInputStream(), TrackPagingObject.class);
-        con.disconnect();
+        try {
+            URL url = new URL("https://api.spotify.com/v1/me/top/tracks?limit=" + amount);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Authorization", "Bearer " + ServerController.getSpotifyAccessToken());
+            con.setUseCaches(false);
+            con.setDoInput(true);
+            con.setDoOutput(true);
+            
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.configure(com.fasterxml.jackson.core.JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+            
+            TrackPagingObject tracks = mapper.readValue(con.getInputStream(), TrackPagingObject.class);
+            con.disconnect();
 
-        return tracks.items;
+            return tracks.items;
+        } catch(Exception e){
+            return null;
+        }
     }
 
-    public static ArtistObject[] getTopArtists(int amount) throws Exception {
+    public static ArtistObject[] getTopArtists(int amount) {
         if(ServerController.getSpotifyAccessToken().equals("")) return null;
-        URL url = new URL("https://api.spotify.com/v1/me/top/artists?limit=" + amount);
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("GET");
-        con.setRequestProperty("Authorization", "Bearer " + ServerController.getSpotifyAccessToken());
-        con.setUseCaches(false);
-        con.setDoInput(true);
-        con.setDoOutput(true);
-        
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(com.fasterxml.jackson.core.JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
-        
-        ArtistPagingObject artists = mapper.readValue(con.getInputStream(), ArtistPagingObject.class);
-        con.disconnect();
+        try {
+            URL url = new URL("https://api.spotify.com/v1/me/top/artists?limit=" + amount);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("Authorization", "Bearer " + ServerController.getSpotifyAccessToken());
+            con.setUseCaches(false);
+            con.setDoInput(true);
+            con.setDoOutput(true);
+            
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.configure(com.fasterxml.jackson.core.JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+            
+            ArtistPagingObject artists = mapper.readValue(con.getInputStream(), ArtistPagingObject.class);
+            con.disconnect();
 
-        return artists.items;
+            return artists.items;
+        } catch(Exception e){
+            return null;
+        }
     }
 }
